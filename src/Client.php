@@ -1,13 +1,7 @@
 <?php
 
-namespace petrjirasek\AlgoliaSearch;
+namespace AlgoliaSearch\Nette;
 
-use Nette;
-use Nette\PhpGenerator as Code;
-
-/**
- * @author Petr Jirásek
- */
 class Client extends \AlgoliaSearch\Client
 {
     /**

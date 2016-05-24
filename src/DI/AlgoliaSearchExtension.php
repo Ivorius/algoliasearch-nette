@@ -1,13 +1,10 @@
 <?php
 
-namespace petrjirasek\AlgoliaSearch\DI;
+namespace AlgoliaSearch\Nette\DI;
 
+use AlgoliaSearch\Nette\InvalidArgumentException;
 use Nette;
-use petrjirasek\AlgoliaSearch\InvalidArgumentException;
 
-/**
- * @author Petr Jirásek
- */
 class AlgoliaSearchExtension extends Nette\DI\CompilerExtension
 {
     public $defaults = array(
@@ -21,7 +18,6 @@ class AlgoliaSearchExtension extends Nette\DI\CompilerExtension
     {
         $config = $this->getConfig($this->defaults);
 
-        $builder = $this->getContainerBuilder();
         $applicationId = $config['applicationId'];
         $apiKey = $config['apiKey'];
         $hosts = $config['hosts'];
@@ -51,7 +47,8 @@ class AlgoliaSearchExtension extends Nette\DI\CompilerExtension
             throw new InvalidArgumentException('Parameter options must be type of array.');
         }
 
+        $builder = $this->getContainerBuilder();
         $builder->addDefinition($this->prefix('algoliaSearch'))
-            ->setClass('petrjirasek\AlgoliaSearch\Client', array($applicationId, $apiKey, $hosts, $options));
+            ->setClass('\AlgoliaSearch\Nette\Client', array($applicationId, $apiKey, $hosts, $options));
     }
 }
