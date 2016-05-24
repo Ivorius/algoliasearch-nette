@@ -14,7 +14,7 @@ class AlgoliaSearchExtension extends Nette\DI\CompilerExtension
         'applicationId' => null,
         'apiKey' => null,
         'hosts' => null,
-        'options' => []
+        'options' => array(),
     );
 
     public function loadConfiguration()
@@ -52,6 +52,6 @@ class AlgoliaSearchExtension extends Nette\DI\CompilerExtension
         }
 
         $builder->addDefinition($this->prefix('algoliaSearch'))
-            ->setClass('petrjirasek\AlgoliaSearch\Client', [$applicationId, $apiKey, $hosts, $options]);
+            ->setClass('petrjirasek\AlgoliaSearch\Client', array($applicationId, $apiKey, $hosts, $options));
     }
 }
