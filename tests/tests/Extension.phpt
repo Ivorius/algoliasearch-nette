@@ -4,7 +4,6 @@ namespace petrjirasek\AlgoliaSearch\Tests;
 
 use Nette;
 use petrjirasek\AlgoliaSearch\Client;
-use petrjirasek\AlgoliaSearch\InvalidArgumentException;
 use Tester;
 use Tester\Assert;
 
@@ -35,21 +34,22 @@ class ExtensionTest extends Tester\TestCase
 
     public function testExtensionParameters()
     {
-        Assert::throws(function () {
-            $this->createContainer('emptyParameters');
-        }, InvalidArgumentException::class, 'Parameter applicationId is required.');
+        $self = $this;
+        Assert::throws(function () use ($self) {
+            $self->createContainer('emptyParameters');
+        }, 'petrjirasek\AlgoliaSearch\InvalidArgumentException', 'Parameter applicationId is required.');
 
-        Assert::throws(function () {
-            $this->createContainer('missingApiKey');
-        }, InvalidArgumentException::class, 'Parameter apiKey is required.');
+        Assert::throws(function () use ($self) {
+            $self->createContainer('missingApiKey');
+        }, 'petrjirasek\AlgoliaSearch\InvalidArgumentException', 'Parameter apiKey is required.');
 
-        Assert::throws(function () {
-            $this->createContainer('invalidHosts');
-        }, InvalidArgumentException::class, 'Parameter hosts must be type of array.');
+        Assert::throws(function () use ($self) {
+            $self->createContainer('invalidHosts');
+        }, 'petrjirasek\AlgoliaSearch\InvalidArgumentException', 'Parameter hosts must be type of array.');
 
-        Assert::throws(function () {
-            $this->createContainer('invalidOptions');
-        }, InvalidArgumentException::class, 'Parameter options must be type of array.');
+        Assert::throws(function () use ($self) {
+            $self->createContainer('invalidOptions');
+        }, 'petrjirasek\AlgoliaSearch\InvalidArgumentException', 'Parameter options must be type of array.');
     }
 
     public function testFullConfiguration()
@@ -60,4 +60,5 @@ class ExtensionTest extends Tester\TestCase
     }
 }
 
-(new ExtensionTest())->run();
+$testCase = new ExtensionTest();
+$testCase->run();
