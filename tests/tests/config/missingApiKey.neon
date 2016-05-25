@@ -1,5 +1,5 @@
 extensions:
-    algoliaSearch: petrjirasek\AlgoliaSearch\DI\AlgoliaSearchExtension
+    algoliaSearch: AlgoliaSearch\Nette\DI\AlgoliaSearchExtension
 
 algoliaSearch:
     applicationId: abc123
