@@ -1,30 +1,29 @@
-# AlgoliaSearch [UNDER DEVELOPMENT]
+# AlgoliaSearch for Nette
 
-Implementation of [algolia/algoliasearch-client-php](https://github.com/algolia/algoliasearch-client-php) to Nette.
+This extention integrates [algolia/algoliasearch-client-php](https://github.com/algolia/algoliasearch-client-php) into Nette framework.
 
+More information about Algolia can be found on it's [website](https://www.algolia.com) or in [the offical documentation](https://www.algolia.com/doc).
 
-## Install
+[![Build Status](https://travis-ci.org/algolia/algoliasearch-nette.svg?branch=master)](https://travis-ci.org/algolia/algoliasearch-nette)
 
+## Installation
+
+Install the extension by using Composer command:
 ```sh
-composer require petrjirasek/algolia-search
+$ composer require algolia/algoliasearch-nette
 ```
 
-Register extensions in `config.neon`:
+and register it in `config.neon`:
 
 ```yaml
 extensions:
-    algoliaSearch: petrjirasek\AlgoliaSearch\DI\AlgoliaSearchExtension
+    algoliaSearch: AlgoliaSearch\Nette\DI\AlgoliaSearchExtension
 ```
 
-
-## Configuration
-
-`config.neon` with default values
+## Minimal configuration
 
 ```yaml
 algoliaSearch:
-    applicationId: abc123 # application id
-    apiKey: abc123 # api key
-    hosts: ... # array of hosts
-    options: [cainfo : ..., curloptions : [...]] # array of options
+    applicationId: <your_app_id>
+    apiKey: <your_api_key>
 ```
