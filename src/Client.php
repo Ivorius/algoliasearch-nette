@@ -2,6 +2,8 @@
 
 namespace AlgoliaSearch\Nette;
 
+use AlgoliaSearch\Version;
+
 class Client extends \AlgoliaSearch\Client
 {
     /**
@@ -9,6 +11,8 @@ class Client extends \AlgoliaSearch\Client
      */
     public function __construct($applicationID, $apiKey, $hostsArray = null, $options = array())
     {
+        Version::$custom_value = ' Nette 1.0.0';
+
         parent::__construct($applicationID, $apiKey, $hostsArray, $options);
     }
 }
