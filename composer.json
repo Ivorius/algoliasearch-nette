@@ -2,18 +2,12 @@
     "name": "algolia/algoliasearch-nette",
     "description": "Integration of algolia/algoliasearch-client-php to Nette",
     "type": "library",
-	"homepage": "https://github.com/algolia/algoliasearch-nette",
+    "homepage": "https://github.com/algolia/algoliasearch-nette",
     "license": "MIT",
     "tags": ["algolia, search, nette"],
     "authors": [
-        {
-            "name": "Petr Jirásek",
-            "homepage": "https://www.petrjirasek.cz"
-        },
-	    {
-		    "name": "Algolia Team",
-		    "email": "contact@algolia.com"
-	    }
+        { "name": "Petr Jirásek", "homepage": "https://www.petrjirasek.cz" },
+        { "name": "Algolia Team", "email": "contact@algolia.com" }
     ],
     "require": {
         "php": ">=5.3.0",
