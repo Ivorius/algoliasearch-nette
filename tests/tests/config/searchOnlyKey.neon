@@ -1,0 +1,7 @@
+extensions:
+    algoliaSearch: AlgoliaSearch\Nette\DI\AlgoliaSearchExtension
+
+algoliaSearch:
+    applicationId: abc123
+    apiKey: abc123
+    searchOnlyKey: aabb1122

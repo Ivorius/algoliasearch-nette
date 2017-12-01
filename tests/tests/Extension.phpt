@@ -62,6 +62,19 @@ class ExtensionTest extends Tester\TestCase
 
         Assert::true($algoliaSearch instanceof Client);
     }
+
+    public function testSearchOnlyKey()
+	{
+		$container = $this->createContainer('searchOnlyKey');
+		/** @var Client $algoliaSearch */
+		$algoliaSearch = $container->getByType('AlgoliaSearch\Nette\Client');
+
+		Assert::same($algoliaSearch->getSearchOnlyKey(), 'aabb1122');
+
+		Assert::throws(function () use ($algoliaSearch) {
+			$algoliaSearch->setSearchOnlyKey(null);
+		}, 'TypeError');
+	}
 }
 
 $testCase = new ExtensionTest();

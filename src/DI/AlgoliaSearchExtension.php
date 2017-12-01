@@ -10,6 +10,7 @@ class AlgoliaSearchExtension extends Nette\DI\CompilerExtension
     public $defaults = array(
         'applicationId' => null,
         'apiKey' => null,
+        'searchOnlyKey' => null,
         'hosts' => null,
         'options' => array(),
     );
@@ -20,6 +21,7 @@ class AlgoliaSearchExtension extends Nette\DI\CompilerExtension
 
         $applicationId = $config['applicationId'];
         $apiKey = $config['apiKey'];
+        $searchOnlyKey = $config['searchOnlyKey'];
         $hosts = $config['hosts'];
         $options = $config['options'];
 
@@ -48,7 +50,11 @@ class AlgoliaSearchExtension extends Nette\DI\CompilerExtension
         }
 
         $builder = $this->getContainerBuilder();
-        $builder->addDefinition($this->prefix('algoliaSearch'))
+        $algoliaClient = $builder->addDefinition($this->prefix('algoliaSearch'))
             ->setClass('\AlgoliaSearch\Nette\Client', array($applicationId, $apiKey, $hosts, $options));
+
+        if($searchOnlyKey) {
+        	$algoliaClient->addSetup('setSearchOnlyKey', [$searchOnlyKey]);
+		}
     }
 }

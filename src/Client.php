@@ -6,6 +6,10 @@ use AlgoliaSearch\Version;
 
 class Client extends \AlgoliaSearch\Client
 {
+	/** @var string */
+	private $searchOnlyKey;
+
+
     /**
      * @inheritdoc
      */
@@ -15,4 +19,18 @@ class Client extends \AlgoliaSearch\Client
 
         parent::__construct($applicationID, $apiKey, $hostsArray, $options);
     }
+
+
+    public function setSearchOnlyKey(string $searchOnlyKey)
+	{
+    	$this->searchOnlyKey = $searchOnlyKey;
+    }
+
+	/**
+	 * @return string
+	 */
+    public function getSearchOnlyKey()
+	{
+		return $this->searchOnlyKey;
+	}
 }
